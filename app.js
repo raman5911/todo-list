@@ -151,6 +151,11 @@ app.post("/work", function(req, res) {
     res.redirect("/work");
 });
 
-app.listen(process.env.PORT || 3000, function() {
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
+
+app.listen(port, function() {
     console.log("Server listening to port 3000");
 });
